@@ -1,0 +1,18 @@
+class Test1 {
+     def x = 30
+     def y = 40
+
+     def run() {
+         def data = [ x: 10, y: 20 ]
+         def cl = { y = x + y }
+         cl.delegate = data
+         cl()
+         assert x == 30
+         assert y == 70
+         assert data == [x:10, y:20]
+         print "Success"
+     }
+ }
+
+ Test1 Test2= new Test1()
+ Test2.run()
